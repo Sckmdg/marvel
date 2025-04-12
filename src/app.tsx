@@ -15,6 +15,21 @@ const router = createBrowserRouter([
         path:    '/',
         element: <Main />,
       },
+      {
+        index:   true,
+        path:    '/comic',
+        element: <Main />,
+      },
+      {
+        index:   true,
+        path:    '/magazine',
+        element: <Main />,
+      },
+      {
+        index:   true,
+        path:    '/digital',
+        element: <Main />,
+      },
     ],
   },
 ]);

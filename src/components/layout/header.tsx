@@ -26,7 +26,7 @@ const Header = () => {
 							key={key}
 							to={item.to}
 							className={({isActive}) => (isActive
-								? `text-red-600 hover:text-white duration-150 ease-in pl-[${key === 0 ? '0' : '81px'}]`
+								? `text-red-600 duration-150 ease-in pl-[${key === 0 ? '0' : '81px'}]`
 								: `hover:text-red-600 duration-150 ease-in pl-[${key === 0 ? '0' : '81px'}]`)}
 						>
 							{item.label}
