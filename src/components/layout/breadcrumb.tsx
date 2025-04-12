@@ -27,11 +27,12 @@ const Breadcrumb = () => {
     }
 
     return (
-        <div className="text-sm text-gray-500 px-12 mt-4">
+        <div className="mb-[20px]">
             {filteredMatches.map(({ pathname }, key) => (
                 <NavLink
+                    key={key}
                     to={pathname}
-                    className="hover:text-red-500 duration-150 ease-in"
+                    className="hover:text-red-500 transition font-bold text-[18px] text-gray-500"
                 >
                     {matchPathToName(pathname)} {(filteredMatches.length !== key + 1) ? `\u003e ` : ''}
                 </NavLink>

@@ -12,7 +12,7 @@ const Header = () => {
 
 	return (
 		<header className="w-full h-[112px] bg-black flex items-center">
-			<div className="flex items-center pl-[250px]">
+			<div className="flex items-center mx-auto max-w-7xl">
 				<NavLink to="/">
 					<img
 						src={logo}
@@ -20,14 +20,16 @@ const Header = () => {
 						className="pr-[60px]"
 					/>
 				</NavLink>
-				<nav className="flex text-white text-lg font-normal">
+				<nav className="flex text-white text-lg font-normal space-x-[81px]">
 					{navigation.map((item, key) => (
 						<NavLink
 							key={key}
 							to={item.to}
-							className={({isActive}) => (isActive
-								? `text-red-600 duration-150 ease-in pl-[${key === 0 ? '0' : '81px'}]`
-								: `hover:text-red-600 duration-150 ease-in pl-[${key === 0 ? '0' : '81px'}]`)}
+							className={({ isActive }) => {
+								const baseClass = `transition `;
+
+								return isActive ? `${baseClass} text-red-600` : `${baseClass} hover:text-red-600`;
+							}}
 						>
 							{item.label}
 						</NavLink>

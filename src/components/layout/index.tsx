@@ -8,8 +8,10 @@ const Layout = () => {
 	return (
 		<div className="quicksand min-h-screen bg-white">
 			<Header />
-			<Breadcrumb />
-			<Outlet />
+			<div className="text-sm px-12 mt-4 mx-auto">
+				<Breadcrumb />
+				<Outlet />
+			</div>
 		</div>
 	);
 };
