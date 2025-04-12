@@ -1,0 +1,188 @@
+{
+	"root": true,
+	"ignorePatterns": [
+		"**/*"
+	],
+	"plugins": [
+		"@nx",
+		"no-relative-import-paths"
+	],
+	"overrides": [
+		{
+			"files": [
+				"*.ts",
+				"*.tsx",
+				"*.js",
+				"*.jsx",
+				"*.json"
+			],
+			"rules": {
+				"no-relative-import-paths/no-relative-import-paths": [
+					"error"
+				]
+			}
+		},
+		{
+			"files": [
+				"*.ts",
+				"*.tsx"
+			],
+			"extends": [
+				"airbnb-base",
+				"airbnb-typescript"
+			],
+			"rules": {
+				"no-underscore-dangle": "off",
+				"max-len": [
+					1,
+					120
+				],
+				"no-plusplus": "off",
+				"no-unused-vars": "off",
+				"newline-per-chained-call": "off",
+				"import/no-unresolved": "off",
+				"@typescript-eslint/no-unused-vars": 2,
+				"no-console": [
+					1,
+					{
+						"allow": [
+							"info",
+							"warn",
+							"error"
+						]
+					}
+				],
+				"no-param-reassign": [
+					0
+				],
+				"react/display-name": "off",
+				"react/prop-types": "off",
+				"react/self-closing-comp": [
+					2,
+					{
+						"component": true
+					}
+				],
+				"import/no-useless-path-segments": [
+					2,
+					{
+						"noUselessIndex": true
+					}
+				],
+				"padding-line-between-statements": [
+					2,
+					{
+						"blankLine": "always",
+						"prev": "*",
+						"next": "return"
+					},
+					{
+						"blankLine": "always",
+						"prev": "*",
+						"next": "break"
+					},
+					{
+						"blankLine": "always",
+						"prev": "*",
+						"next": "block"
+					},
+					{
+						"blankLine": "always",
+						"prev": "*",
+						"next": "block-like"
+					}
+				],
+				"react/jsx-max-props-per-line": [
+					2,
+					{
+						"maximum": 1,
+						"when": "always"
+					}
+				],
+				"react/jsx-wrap-multilines": [
+					2,
+					{
+						"declaration": "parens-new-line"
+					}
+				],
+				"key-spacing": [
+					2,
+					{
+						"align": "value"
+					}
+				],
+				"indent": "off",
+				"@typescript-eslint/indent": [
+					2,
+					"tab",
+					{
+						"SwitchCase": 1
+					}
+				],
+				"react/jsx-indent-props": [
+					2,
+					"tab"
+				],
+				"react/jsx-indent": [
+					2,
+					"tab"
+				],
+				"react/jsx-closing-bracket-location": [
+					"error",
+					"line-aligned"
+				],
+				"no-tabs": "off",
+				"quote-props": [
+					2,
+					"as-needed"
+				],
+				"import/extensions": [
+					2,
+					{
+						"json": "always",
+						"svg": "always",
+						"png": "always",
+						"css": "always",
+						"less": "always",
+						"graphql": "always",
+						"scss": "always",
+						"mdx": "always",
+						"enum": "always",
+						"test": "always"
+					}
+				],
+				"no-nested-ternary": "off",
+				"default-case": "off",
+				"import/no-extraneous-dependencies": "off",
+				"import/no-named-as-default-member": "off",
+				"react/jsx-filename-extension": [
+					0
+				],
+				"import/prefer-default-export": "off",
+				"react-hooks/rules-of-hooks": "error",
+				"react-hooks/exhaustive-deps": "off",
+				"arrow-parens": "off",
+				"@typescript-eslint/ban-ts-comment": "off"
+			}
+		},
+		{
+			"files": [
+				"*.js",
+				"*.jsx"
+			],
+			"rules": {}
+		},
+		{
+			"files": [
+				"*.spec.ts",
+				"*.spec.tsx",
+				"*.spec.js",
+				"*.spec.jsx"
+			],
+			"env": {
+				"jest": true
+			},
+			"rules": {}
+		}
+	]
+}
