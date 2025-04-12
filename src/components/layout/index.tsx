@@ -5,11 +5,9 @@ import Header from './header';
 
 const Layout = () => {
 	return (
-		<div>
+		<div className="quicksand">
 			<Header />
-			<div style={{ padding: '0 48px' }}>
-				<Outlet />
-			</div>
+			<Outlet />
 		</div>
 	);
 };

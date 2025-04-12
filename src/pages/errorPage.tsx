@@ -6,14 +6,19 @@ const ErrorPage = () => {
 	console.error(error);
 
 	return (
-		<div id="error-page">
-			<h1>Oops!</h1>
-			<p>Sorry, an unexpected error has occurred.</p>
-			<NavLink to="/">Return to main page</NavLink>
+		<main className="flex-grow flex flex-col items-center justify-center text-center px-4">
+			<h1 className="text-6xl font-bold mb-4">404</h1>
+			<p className="text-xl text-gray-600 mb-6">Page Not Found</p>
+			<NavLink
+				to="/"
+				className="pb-2 text-blue-500"
+			>
+				Return to main page
+			</NavLink>
 			<p>
 				<i>{error?.statusText || error?.message}</i>
 			</p>
-		</div>
+		</main>
 	);
 };
 
