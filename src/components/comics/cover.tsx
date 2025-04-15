@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useMemo} from 'react';
+
 import { IComics } from 'interfaces';
+import { getLowerPrice } from 'utils';
 
 interface IProps {
     item: IComics;
@@ -8,6 +10,10 @@ interface IProps {
 }
 
 const Cover = ({ item: { title, price, img }, className = '', onOpenDetailed }: IProps) => {
+    const lowestPrice = useMemo(() => {
+        return getLowerPrice(price);
+    }, [price]);
+
     return (
         <div className={`flex-basis-1/4 border-2 border-[#1D1D1D] rounded-[5px] p-[13px] w-[336px] h-[170px] relative mb-[20px] ${className}`}>
             <div className="flex">
@@ -19,10 +25,10 @@ const Cover = ({ item: { title, price, img }, className = '', onOpenDetailed }: 
                 <h2 className="text-[16px] font-bold">{title}</h2>
             </div>
             <div className="absolute right-[15px] bottom-[18px] flex flex-col justify-end">
-                <span className="text-[19px] font-bold text-right">{price}</span>
+                <span className="text-[19px] font-bold text-right">{lowestPrice}</span>
                 <button
                     className="w-[140px] h-[30px] mt-[12px] bg-comicsRed text-white font-semibold py-[4x] px-[30px] rounded-[5px] hover:opacity-75 self-end transition"
-                    onClick={() => onOpenDetailed('future id')}
+                    onClick={() => onOpenDetailed(title)}
                 >
                     More info
                 </button>

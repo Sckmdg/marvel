@@ -1,5 +1,5 @@
 export interface IComics {
     title: string;
-    price: string;
+    price: string[];
     img: string;
 }

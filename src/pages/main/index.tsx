@@ -11,6 +11,7 @@ const Main = () => {
 	const [open, setOpen] = useState(false);
 	const [items, setItems] = useState<IComics[]>([]);
 	const [hasMore, setHasMore] = useState(true);
+	const [id, setId] = useState<string | null>(null);
 
 	useEffect(() => {
 		console.info(`If api would work i would pass changes in this hook - url changed to ${location.pathname}`);
@@ -37,8 +38,13 @@ const Main = () => {
 	}, []);
 
 	const onOpenDetailed = (id: string) => {
-		console.info(id);
+		setId(id);
 		setOpen(true);
+	};
+
+	const onCloseDetailed = () => {
+		setId(null);
+		setOpen(false);
 	};
 
 	return (
@@ -68,7 +74,8 @@ const Main = () => {
 			{open && (
 				<Detailed
 					open={open}
-					setOpen={setOpen}
+					id={id}
+					onCloseDetailed={onCloseDetailed}
 				/>
 			)}
 		</>
