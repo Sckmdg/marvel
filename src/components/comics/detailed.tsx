@@ -1,6 +1,6 @@
 import React from 'react';
-import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react';
-import { ExclamationTriangleIcon } from '@heroicons/react/24/outline';
+import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react';
+import { XMarkIcon } from "@heroicons/react/16/solid";
 
 interface IProps {
     open: boolean;
@@ -23,43 +23,50 @@ const Detailed = ({ open, setOpen }: IProps) => {
                 <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
                     <DialogPanel
                         transition
-                        className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all data-closed:translate-y-4 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in sm:my-8 sm:w-full sm:max-w-lg data-closed:sm:translate-y-0 data-closed:sm:scale-95"
+                        className="border border-[#1D1D1D] rounded-[5px] p-[13px] w-[643px] h-[270px] relative transform overflow-hidden bg-white text-left shadow-xl transition-all data-closed:translate-y-4 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in data-closed:sm:translate-y-0 data-closed:sm:scale-95"
                     >
-                        <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                            <div className="sm:flex sm:items-start">
-                                <div className="mx-auto flex size-12 shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:size-10">
-                                    <ExclamationTriangleIcon aria-hidden="true" className="size-6 text-red-600" />
-                                </div>
-                                <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                                    <DialogTitle as="h3" className="text-base font-semibold text-gray-900">
-                                        Deactivate account
-                                    </DialogTitle>
-                                    <div className="mt-2">
-                                        <p className="text-sm text-gray-500">
-                                            Are you sure you want to deactivate your account? All of your data will be permanently removed.
-                                            This action cannot be undone.
-                                        </p>
-                                    </div>
-                                </div>
+                        <div className="flex">
+                            <img
+                                src="https://cdn.marvel.com/u/prod/marvel/i/mg/7/00/67915677ecea1/portrait_uncanny.jpg"
+                                alt="title"
+                                className="w-[163px] h-[245px] object-cover mr-[17px]"
+                            />
+                            <div className="flex flex-col">
+                                <h2 className="mt-[12px] mb-[15px] text-[17px] font-bold">Giant-Size X-Men: Tribute To
+                                    Wein & Cockrum #1</h2>
+                                <p className="text-[15px] mb-[3px]">
+                                    <b>Format:</b> <span>Comic</span>
+                                </p>
+                                <p className="text-[15px] mb-[3px]">
+                                    <b>Pages:</b> <span>48</span>
+                                </p>
+                                <p className="text-[15px] mb-[3px]">
+                                    <b>Characters:</b> <span>X-Men</span>
+                                </p>
+                                <p className="text-[15px] mb-[3px]">
+                                    <b>Creators:</b> <span>Jesus Aburtov, Kris Anka, Jen Bartel, ...</span>
+                                </p>
+                                <p className="text-[15px] mb-[3px]">
+                                    <b>Year of release:</b> <span>2020</span>
+                                </p>
+                                <p className="text-[15px] mb-[3px]">
+                                    <b>DiamondCode:</b> <span>MAR200904</span>
+                                </p>
                             </div>
                         </div>
-                        <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                            <button
-                                type="button"
-                                onClick={() => setOpen(false)}
-                                className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-red-500 sm:ml-3 sm:w-auto"
-                            >
-                                Deactivate
-                            </button>
-                            <button
-                                type="button"
-                                data-autofocus
-                                onClick={() => setOpen(false)}
-                                className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                            >
-                                Cancel
-                            </button>
+                        <div className="absolute left-[192px] bottom-[18px] text-[19px] font-bold">
+                            5.99 €
                         </div>
+                        <button
+                            className="absolute right-[13px] bottom-[14px] w-[139px] h-[34px] bg-comicsRed text-white font-semibold py-[4x] px-[30px] rounded-[5px] hover:opacity-75 self-end transition"
+                            onClick={() =>  setOpen(false)}
+                        >
+                            Close
+                        </button>
+                        <XMarkIcon
+                            className="w-[28px] h-[28px] text-comicsRed absolute right-[7px] top-[7px] cursor-pointer"
+                            onClick={() => setOpen(false)}
+                        />
                     </DialogPanel>
                 </div>
             </div>

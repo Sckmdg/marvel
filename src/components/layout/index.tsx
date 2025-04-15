@@ -6,7 +6,7 @@ import Breadcrumb from "./breadcrumb";
 
 const Layout = () => {
 	return (
-		<div className="quicksand min-h-screen bg-white">
+		<div className="min-h-screen bg-white">
 			<Header />
 			<div className="text-sm px-12 mt-4 mx-auto">
 				<Breadcrumb />
