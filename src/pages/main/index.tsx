@@ -1,72 +1,34 @@
-import React, { useState } from 'react';
-import { IComics } from 'interfaces';
-import {Cover, Detailed} from "components/comics";
+import React, { useEffect, useState } from 'react';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
-const mockup: IComics[] = [
-	{
-		title: "Giant-Size X-Men: Tribute To Wein & Cockrum #1",
-		price: "5.99 €",
-		img: "https://cdn.marvel.com/u/prod/marvel/i/mg/7/00/67915677ecea1/portrait_uncanny.jpg",
-	},
-	{
-		title: "Avengers #36",
-		price: "3.99 €",
-		img: "https://cdn.marvel.com/u/prod/marvel/i/mg/7/00/67915677ecea1/portrait_uncanny.jpg",
-	},
-	{
-		title: "Shang-Chi #1",
-		price: "3.99 €",
-		img: "https://cdn.marvel.com/u/prod/marvel/i/mg/7/00/67915677ecea1/portrait_uncanny.jpg",
-	},
-	{
-		title: "Avengers #36",
-		price: "3.99 €",
-		img: "https://cdn.marvel.com/u/prod/marvel/i/mg/7/00/67915677ecea1/portrait_uncanny.jpg",
-	},
-	{
-		title: "Giant-Size X-Men: Tribute To Wein & Cockrum #1",
-		price: "5.99 €",
-		img: "https://cdn.marvel.com/u/prod/marvel/i/mg/7/00/67915677ecea1/portrait_uncanny.jpg",
-	},
-	{
-		title: "Shang-Chi #1",
-		price: "3.99 €",
-		img: "https://cdn.marvel.com/u/prod/marvel/i/mg/7/00/67915677ecea1/portrait_uncanny.jpg",
-	},
-	{
-		title: "Giant-Size X-Men: Tribute To Wein & Cockrum #1",
-		price: "5.99 €",
-		img: "https://cdn.marvel.com/u/prod/marvel/i/mg/7/00/67915677ecea1/portrait_uncanny.jpg",
-	},
-	{
-		title: "Avengers #36",
-		price: "3.99 €",
-		img: "https://cdn.marvel.com/u/prod/marvel/i/mg/7/00/67915677ecea1/portrait_uncanny.jpg",
-	},
-	{
-		title: "Shang-Chi #1",
-		price: "3.99 €",
-		img: "https://cdn.marvel.com/u/prod/marvel/i/mg/7/00/67915677ecea1/portrait_uncanny.jpg",
-	},
-	{
-		title: "Avengers #36",
-		price: "3.99 €",
-		img: "https://cdn.marvel.com/u/prod/marvel/i/mg/7/00/67915677ecea1/portrait_uncanny.jpg",
-	},
-	{
-		title: "Giant-Size X-Men: Tribute To Wein & Cockrum #1",
-		price: "5.99 €",
-		img: "https://cdn.marvel.com/u/prod/marvel/i/mg/7/00/67915677ecea1/portrait_uncanny.jpg",
-	},
-	{
-		title: "Shang-Chi #1",
-		price: "3.99 €",
-		img: "https://cdn.marvel.com/u/prod/marvel/i/mg/7/00/67915677ecea1/portrait_uncanny.jpg",
-	},
-];
+import { IComics } from 'interfaces';
+import { Cover, Detailed, Loader } from 'components';
+import { generateCoverList } from 'utils';
 
 const Main = () => {
 	const [open, setOpen] = useState(false);
+	const [items, setItems] = useState<IComics[]>([]);
+	const [hasMore, setHasMore] = useState(true);
+
+	const fetchData = () => {
+		return generateCoverList();
+	};
+
+	const loadMore = async () => {
+		if (items.length >= 100) {
+			setHasMore(false);
+			return;
+		}
+
+		const newItems = fetchData();
+		setTimeout(() => {
+			setItems((prev) => [...prev, ...newItems]);
+		}, 2000);
+	};
+
+	useEffect(() => {
+		loadMore();
+	}, []);
 
 	const onOpenDetailed = (id: string) => {
 		console.info(id);
@@ -74,15 +36,28 @@ const Main = () => {
 	};
 
 	return (
-		<div className="flex flex-wrap">
-			{mockup.map((comic, key) => (
-				<Cover
-					key={key}
-					item={comic}
-					className={(key + 1) % 4 === 0 ? 'mr-[0px]' : 'mr-[20px]'}
-					onOpenDetailed={onOpenDetailed}
-				/>
-			))}
+		<>
+			<InfiniteScroll
+				className="flex flex-wrap"
+				dataLength={items.length}
+				next={loadMore}
+				hasMore={hasMore}
+				loader={<Loader />}
+				endMessage={
+					<p className="text-center py-4 text-gray-500">
+						<b>Yay! You have seen it all</b>
+					</p>
+				}
+			>
+				{items.map((item, key) => (
+					<Cover
+						key={key}
+						item={item}
+						className={(key + 1) % 4 === 0 ? 'mr-[0px]' : 'mr-[20px]'}
+						onOpenDetailed={onOpenDetailed}
+					/>
+				))}
+			</InfiniteScroll>
 
 			{open && (
 				<Detailed
@@ -90,7 +65,7 @@ const Main = () => {
 					setOpen={setOpen}
 				/>
 			)}
-		</div>
+		</>
 	);
 };
 
