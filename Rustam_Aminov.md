@@ -1,8 +1,8 @@
 # Issues that i faced
 
-- When you create an account in https://developer.marvel.com you're able to browse, but you will get 500 if you try to open docs page or try to generate a public key
-    - i've tried to create a couple of accounts with VPN and different country, still didn't work
-    - so i've to use incognito mode just to read docs
-- Anyway i will try to use key that you provided, but it may take more time since i'm doing requests blindly
+- Can't use https://developer.marvel.com , i don't have an secret key, that is needed to call API as written here https://developer.marvel.com/documentation/authorization
+  - i've tried to find it anywhere, but i was unlucky
 - src/components/layout/breadcrumb.tsx matchPathToName function
   - i don't want to install lodash only to transform from snake case to uppercase/remove _ sign and etc, just an easy function is better IMHO
+- markup can be done way better and with mobile devices support, but honestly i'm not really best at it and i've get unused to work with markup from a scratch, usually there is some system of components behind that, but i didn't want to spend more time on this aspect than i already did
+- is it a problem or not: i did a different routes and pages for filter system that we have, it could be better to just pass as URL param, but without api there is no difference

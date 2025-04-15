@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 import { IComics } from 'interfaces';
@@ -6,9 +7,14 @@ import { Cover, Detailed, Loader } from 'components';
 import { generateCoverList } from 'utils';
 
 const Main = () => {
+	const location = useLocation();
 	const [open, setOpen] = useState(false);
 	const [items, setItems] = useState<IComics[]>([]);
 	const [hasMore, setHasMore] = useState(true);
+
+	useEffect(() => {
+		console.info(`If api would work i would pass changes in this hook - url changed to ${location.pathname}`);
+	}, [location]);
 
 	const fetchData = () => {
 		return generateCoverList();
