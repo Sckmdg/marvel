@@ -8,3 +8,5 @@
 - is it a problem or not: i did a different routes and pages for filter system that we have, it could be better to just pass as URL param, but without api there is no difference
 - github pages
   - didn't expected that i need to define subdomain for it =/
+- tests
+  - didn't provided since create-react-app and react-router v6 having issues together and i'm short in time, don't wanna prolong this challenge for a big time
