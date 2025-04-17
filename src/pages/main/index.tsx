@@ -49,7 +49,7 @@ const Main = () => {
 
 	useEffect(() => {
 		loadMore();
-	}, []);
+	}, [loadMore]);
 
 	const onOpenDetailed = (id: string) => {
 		setId(id);
