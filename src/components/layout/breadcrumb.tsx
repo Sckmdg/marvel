@@ -7,22 +7,27 @@ const Breadcrumb = () => {
         return matches
             .filter((item, index, self) =>
                 index === self.findIndex(t => t.pathname === item.pathname))
+            // hack for github pages
+            .filter(item => item.pathname !== '/marvel')
     }, [matches]);
 
     const matchPathToName = (path:string):string => {
         switch (path) {
-            case '/comic':
+            case '/marvel/comic':
                 return 'Comic'
 
-            case '/magazine':
-                return 'Magazie'
+            case '/marvel/magazine':
+                return 'Magazine'
 
-            case '/digital':
+            case '/marvel/digital':
                 return 'Digital'
+
+            case '/marvel/all':
+                return 'All';
 
             case '/':
             default:
-                return 'Home'
+                return 'Home';
         }
     }
 

@@ -6,3 +6,5 @@
   - i don't want to install lodash only to transform from snake case to uppercase/remove _ sign and etc, just an easy function is better IMHO
 - markup can be done way better and with mobile devices support, but honestly i'm not really best at it and i've get unused to work with markup from a scratch, usually there is some system of components behind that, but i didn't want to spend more time on this aspect than i already did
 - is it a problem or not: i did a different routes and pages for filter system that we have, it could be better to just pass as URL param, but without api there is no difference
+- github pages
+  - didn't expected that i need to define subdomain for it =/

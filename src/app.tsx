@@ -17,17 +17,27 @@ const router = createBrowserRouter([
       },
       {
         index:   true,
-        path:    '/comic',
+        path:    '/marvel/',
         element: <Main />,
       },
       {
         index:   true,
-        path:    '/magazine',
+        path:    '/marvel/all',
         element: <Main />,
       },
       {
         index:   true,
-        path:    '/digital',
+        path:    '/marvel/comic',
+        element: <Main />,
+      },
+      {
+        index:   true,
+        path:    '/marvel/magazine',
+        element: <Main />,
+      },
+      {
+        index:   true,
+        path:    '/marvel/digital',
         element: <Main />,
       },
     ],

@@ -4,16 +4,16 @@ import logo from 'assets/logo2.svg';
 
 const Header = () => {
 	const navigation = useMemo(() => [
-		{ to: '/', label: 'All' },
-		{ to: '/comic', label: 'Comic' },
-		{ to: '/magazine', label: 'Magazine' },
-		{ to: '/digital', label: 'Digital comic' },
+		{ to: '/marvel/all', label: 'All' },
+		{ to: '/marvel/comic', label: 'Comic' },
+		{ to: '/marvel/magazine', label: 'Magazine' },
+		{ to: '/marvel/digital', label: 'Digital comic' },
 	], []);
 
 	return (
 		<header className="w-full h-[112px] bg-black flex items-center">
 			<div className="flex items-center mx-auto max-w-7xl">
-				<NavLink to="/">
+				<NavLink to="/marvel">
 					<img
 						src={logo}
 						alt="Comic site logo with speech bubble"
