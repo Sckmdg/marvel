@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { ExclamationTriangleIcon } from '@heroicons/react/16/solid';
@@ -31,7 +31,7 @@ const Main = () => {
 		return generateCoverList();
 	};
 
-	const loadMore = async () => {
+	const loadMore =  useCallback(() => {
 		try {
 			if (items.length >= 100) {
 				setHasMore(false);
@@ -45,7 +45,7 @@ const Main = () => {
 		} catch (e) {
 			demonstrateError();
 		}
-	};
+	}, [items.length]);
 
 	useEffect(() => {
 		loadMore();
