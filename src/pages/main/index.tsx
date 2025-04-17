@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { ExclamationTriangleIcon } from '@heroicons/react/16/solid';
 
 import { IComics } from 'interfaces';
 import { Cover, Detailed, Loader } from 'components';
@@ -12,6 +13,15 @@ const Main = () => {
 	const [items, setItems] = useState<IComics[]>([]);
 	const [hasMore, setHasMore] = useState(true);
 	const [id, setId] = useState<string | null>(null);
+	const [error, setError] = useState<string | null>(null);
+
+	const demonstrateError = () => {
+		setError('Something went wrong while fetching comics');
+		setTimeout(() => setError(null), 3000);
+	};
+
+	// @ts-ignore Just to demonstrate fallback scenario
+	window.demonstrateError = demonstrateError;
 
 	useEffect(() => {
 		console.info(`If api would work i would pass changes in this hook - url changed to ${location.pathname}`);
@@ -22,15 +32,19 @@ const Main = () => {
 	};
 
 	const loadMore = async () => {
-		if (items.length >= 100) {
-			setHasMore(false);
-			return;
-		}
+		try {
+			if (items.length >= 100) {
+				setHasMore(false);
+				return;
+			}
 
-		const newItems = fetchData();
-		setTimeout(() => {
-			setItems((prev) => [...prev, ...newItems]);
-		}, 2000);
+			const newItems = fetchData();
+			setTimeout(() => {
+				setItems((prev) => [...prev, ...newItems]);
+			}, 2000);
+		} catch (e) {
+			demonstrateError();
+		}
 	};
 
 	useEffect(() => {
@@ -77,6 +91,16 @@ const Main = () => {
 					id={id}
 					onCloseDetailed={onCloseDetailed}
 				/>
+			)}
+
+			{error && (
+				<div className="fixed top-4 right-4 p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400">
+					<h2 className="font-medium flex items-center mb-[10px]">
+						<ExclamationTriangleIcon className="size-6 text-red-600 mr-[10px]" />
+						API Error!
+					</h2>
+					<p>Something went wrong while fetching comics</p>
+				</div>
 			)}
 		</>
 	);
