@@ -10,7 +10,7 @@ const ErrorPage = () => {
 			<h1 className="text-6xl font-bold mb-4">404</h1>
 			<p className="text-xl text-gray-600 mb-6">Page Not Found</p>
 			<NavLink
-				to="/"
+				to="/marvel"
 				className="pb-2 text-blue-500"
 			>
 				Return to main page
