@@ -16,23 +16,27 @@ const router = createBrowserRouter([
         element: <Main />,
       },
       {
-        path:    '/marvel/',
+        path:    '/marvel',
         element: <Main />,
         children: [
           {
-            path:    '/all',
+            index: true,
+            path:    'all',
             element: <Main />,
           },
           {
-            path:    '/comic',
+            index: true,
+            path:    'comic',
             element: <Main />,
           },
           {
-            path:    '/magazine',
+            index: true,
+            path:    'magazine',
             element: <Main />,
           },
           {
-            path:    '/digital',
+            index: true,
+            path:    'digital',
             element: <Main />,
           },
         ]
