@@ -8,7 +8,7 @@ const Breadcrumb = () => {
             .filter((item, index, self) =>
                 index === self.findIndex(t => t.pathname === item.pathname))
             // hack for github pages
-            .filter(item => item.pathname !== '/marvel')
+            .filter(item => item.pathname !== '/marvel' && item.id !== '0-1')
     }, [matches]);
 
     const matchPathToName = (path:string):string => {
