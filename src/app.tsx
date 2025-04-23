@@ -16,29 +16,26 @@ const router = createBrowserRouter([
         element: <Main />,
       },
       {
-        index:   true,
         path:    '/marvel/',
         element: <Main />,
-      },
-      {
-        index:   true,
-        path:    '/marvel/all',
-        element: <Main />,
-      },
-      {
-        index:   true,
-        path:    '/marvel/comic',
-        element: <Main />,
-      },
-      {
-        index:   true,
-        path:    '/marvel/magazine',
-        element: <Main />,
-      },
-      {
-        index:   true,
-        path:    '/marvel/digital',
-        element: <Main />,
+        children: [
+          {
+            path:    '/all',
+            element: <Main />,
+          },
+          {
+            path:    '/comic',
+            element: <Main />,
+          },
+          {
+            path:    '/magazine',
+            element: <Main />,
+          },
+          {
+            path:    '/digital',
+            element: <Main />,
+          },
+        ]
       },
     ],
   },

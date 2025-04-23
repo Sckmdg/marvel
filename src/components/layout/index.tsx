@@ -8,7 +8,7 @@ const Layout = () => {
 	return (
 		<div className="min-h-screen bg-white">
 			<Header />
-			<div className="text-sm px-12 mt-4 mx-auto">
+			<div className="text-sm px-12 mt-4 mx-auto max-w-[1512px]">
 				<Breadcrumb />
 				<Outlet />
 			</div>

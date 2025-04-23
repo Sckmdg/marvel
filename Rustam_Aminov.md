@@ -4,9 +4,9 @@
   - i've tried to find it anywhere, but i was unlucky
 - src/components/layout/breadcrumb.tsx matchPathToName function
   - i don't want to install lodash only to transform from snake case to uppercase/remove _ sign and etc, just an easy function is better IMHO
-- markup can be done way better and with mobile devices support, but honestly i'm not really best at it and i've get unused to work with markup from a scratch, usually there is some system of components behind that, but i didn't want to spend more time on this aspect than i already did
-- is it a problem or not: i did a different routes and pages for filter system that we have, it could be better to just pass as URL param, but without api there is no difference
+- markup can be done way better and with mobile devices support, but honestly i'm not really best at it and i've get unused to work with markup from a scratch, usually there is some system of components behind that, but i didn't want to spend more time on this than i already did
+- idk is it a problem or not: i did a different routes and pages for filter system that we have, it could be better to just pass as URL param, but without api there is no difference
 - github pages
-  - didn't expected that i need to define subdomain for it =/
+  - didn't expected that i need to define subdomain for it =/ and thats why i have /marvel in every route
 - tests
-  - didn't provided since create-react-app and react-router v6 having issues together and i'm short in time, don't wanna prolong this challenge for a big time
+  - didn't provided since create-react-app and react-router v6 having issues together with jest and i'm short in time, don't want to prolong this challenge for a big time
